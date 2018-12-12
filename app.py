@@ -18,7 +18,7 @@ api = Api(app)
 
 #innan första requesten kommer create_table köras och skapa upp "data.db" (rad 12)
 @app.before_first_request
-def create_table():
+def create_tables():
     db.create_all()
 
  #JWT skapar en ny endpoint /auth
