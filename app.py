@@ -17,7 +17,7 @@ app.secret_key = 'rasmus'
 api = Api(app)
 
 #JWT skapar en ny endpoint /auth
-#När vi kallar på /auth skickar vi username och password som vidarebefodrar de till authenticate-funktionen som returnerar en JWT-Token.
+ #När vi kallar på /auth skickar vi username och password som vidarebefodrar de till authenticate-funktionen som returnerar en JWT-Token.
 #Vid nästa request så använder vi vår JTW-Token och skickar med till identity-funktionen som kan returnera om usern finns och returnerar "user_id" och JWT-token är valid
 jwt = JWT(app, authenticate, identity)
 
@@ -35,4 +35,4 @@ if __name__ == '__main__':
     #importeras här pga circular import
     from db import db
     db.init_app(app)
-    app.run(port=5000)
+    app.run(port=5000, debug=True)
